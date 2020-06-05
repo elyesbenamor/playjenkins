@@ -19,6 +19,7 @@ spec:
       - image: 192.168.43.117:5000/justme/myweb:1
         imagePullPolicy: Always
         name: myweb
+      imagePullSecret: mudockercred
 
 ---
 apiVersion: v1

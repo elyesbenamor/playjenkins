@@ -2,7 +2,7 @@ pipeline {
 
   environment {
     registry = "192.168.43.117:5000/justme/myweb"
-    registry-Credential = "mudockercred"
+    registryCredential = "mudockercred"
     dockerImage = ""
   }
 
@@ -27,7 +27,7 @@ pipeline {
     stage('Push Image') {
       steps{
         script {
-          docker.withRegistry( "" ) {
+          docker.withRegistry( "" , registryCredential ) {
             dockerImage.push()
           }
         }

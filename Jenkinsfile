@@ -2,6 +2,7 @@ pipeline {
 
   environment {
     registry = "192.168.43.117:5000/justme/myweb"
+    registry-Credential = "mudockercred"
     dockerImage = ""
   }
 

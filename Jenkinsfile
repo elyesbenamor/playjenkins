@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-    registry = "elyes000/test"
+    registry = "192.168.43.117:5000/docker-registry-data"
     registryCredential = "mudockercred"
     dockerImage = ""
   }

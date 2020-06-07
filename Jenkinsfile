@@ -9,9 +9,6 @@ pipeline {
   agent any
 
   stages {
-    when {
-                branch 'master'
-            }
 
     stage('Checkout Source') {
       when {

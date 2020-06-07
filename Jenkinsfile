@@ -9,14 +9,23 @@ pipeline {
   agent any
 
   stages {
+    when {
+                branch 'master'
+            }
 
     stage('Checkout Source') {
+      when {
+                branch 'master'
+            }
       steps {
         git 'https://github.com/elyesbenamor/playjenkins.git'
       }
     }
 
     stage('Build image') {
+      when {
+                branch 'master'
+            }
       steps{
         script {
           dockerImage = docker.build registry + ":$BUILD_NUMBER"
@@ -25,6 +34,9 @@ pipeline {
     }
 
     stage('Push Image') {
+      when {
+                branch 'master'
+            }
       steps{
         script {
           docker.withRegistry( registry , registryCredential ) {
@@ -35,6 +47,9 @@ pipeline {
     }
 
     stage('Deploy App') {
+      when {
+                branch 'master'
+            }
       steps {
         script {
           kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
